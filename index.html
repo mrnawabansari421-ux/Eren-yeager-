@@ -89,6 +89,32 @@
   
 
   
+<script>
+function unlockAudio() {
+  document.querySelectorAll("audio").forEach(a => {
+    a.volume = 1;
+    a.play().then(() => {
+      a.pause();
+      a.currentTime = 0;
+    }).catch(()=>{});
+  });
+  document.removeEventListener("click", unlockAudio);
+}
+
+document.addEventListener("click", unlockAudio);
+</script>
+  
+  
+    
+    
+      
+      
+    
+  
+  
+
+  
+  
   
   
   
