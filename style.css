@@ -75,3 +75,16 @@ footer{
   color: #ff3c00;
   transform: scale(1.2);
 }
+/* FIX BUTTON TEXT VISIBILITY */
+button{
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 16px;
+  opacity: 1;
+  background: rgba(255,255,255,0.08);
+}
+
+button span{
+  color: #ffffff;
+  opacity: 1;
+}
