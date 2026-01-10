@@ -83,11 +83,30 @@
 </div>
   
 
+  <audio id="titanSound" src="titan.mp3"></audio>
+<audio id="scoutSound" src="sword.mp3"></audio>
+<audio id="rageSound" src="fire.mp3"></audio>
   
-<script>
-  document.getElementById("titan").onclick = () => alert("Titan Power Activated!");
-  document.getElementById("scout").onclick = () => alert("Scout Regiment Ready!");
-  document.getElementById("rage").onclick = () => alert("Rage Mode ON!");
+
+  
+  
+  
+  
+  <script>
+  document.getElementById("titan").onclick = function () {
+    document.getElementById("titanSound").currentTime = 0;
+    document.getElementById("titanSound").play();
+  };
+
+  document.getElementById("scout").onclick = function () {
+    document.getElementById("scoutSound").currentTime = 0;
+    document.getElementById("scoutSound").play();
+  };
+
+  document.getElementById("rage").onclick = function () {
+    document.getElementById("rageSound").currentTime = 0;
+    document.getElementById("rageSound").play();
+  };
   </script>
   
 </body>
