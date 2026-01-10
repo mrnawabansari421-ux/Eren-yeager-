@@ -53,3 +53,25 @@ footer{
   font-size: 14px;
   }
   
+/* SOCIAL MEDIA ICONS */
+.social-icons{
+  position: fixed;
+  left: 15px;
+  bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  z-index: 999;
+}
+
+.social-icons a{
+  color: white;
+  font-size: 22px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.social-icons a:hover{
+  color: #ff3c00;
+  transform: scale(1.2);
+}
