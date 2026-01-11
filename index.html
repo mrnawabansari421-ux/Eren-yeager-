@@ -7,134 +7,83 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="stylesheet" href="style.css">
-
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
 </head>
+
 <body>
 
-  <header>
-    <h1>🔥 Eren Yeager 🔥</h1>
-    <p>Attack on Titan</p>
-  </header>
+<header>
+  <h1>🔥 Eren Yeager 🔥</h1>
+  <p>Attack on Titan</p>
+</header>
 
-  <section class="hero">
-    <img src="eren.jpg" alt="Eren">
-    
-    <h2>Freedom Fighter</h2>
-    <p>“If you don’t fight, you can’t win.”</p>
-  </section>
+<section class="hero">
+  <img src="eren.jpg" alt="Eren">
+  <h2>Freedom Fighter</h2>
+  <p>“If you don’t fight, you can’t win.”</p>
+</section>
 
- <section class="cards">
+<section class="cards">
   <button class="card" id="titan">⚔️ Titan Power</button>
   <button class="card" id="scout">🛡️ Scout Regiment</button>
   <button class="card" id="rage">🔥 Rage Mode</button>
- </section>
-  
-   
-   
-  
+</section>
 
-  
-  
+<footer>
+  <p>© 2026 | Made by Nawab</p>
+</footer>
 
-
-    
-
-
-    
-
-
-    
-
-  </section>
-
-  <footer>
-    <p>© 2026 | Made by Nawab</p>
-  </footer> <!-- Social icons fixed left -->
+<!-- Social Icons -->
 <div class="social-icons">
-  
-  <a href="https://www.instagram.com/h3y._st4nnnny?igsh=cGp3MHk4bHY4dmRp" target="_blank">
-    <i class="fab fa-instagram"></i>
-  </a>
-
-  <a href="https://youtube.com/@nawab93883?si=F9A6xQzONGHTzKUM" target="_blank">
-    <i class="fab fa-youtube"></i>
-  </a>
-
-  <a href="https://www.facebook.com/share/16gj2hijG7/" target="_blank">
-    <i class="fab fa-facebook-f"></i>
-  </a>
-
-  <a href="https://x.com/erenx902" target="_blank">
-    <i class="fab fa-x-twitter"></i>
-  </a>
-  
+  <a href="https://www.instagram.com/h3y._st4nnnny" target="_blank"><i class="fab fa-instagram"></i></a>
+  <a href="https://youtube.com/@nawab93883" target="_blank"><i class="fab fa-youtube"></i></a>
+  <a href="https://www.facebook.com/share/16gj2hijG7/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+  <a href="https://x.com/erenx902" target="_blank"><i class="fab fa-x-twitter"></i></a>
 </div>
-  
 
-  <audio id="titanSound" src="titan.mp3"></audio>
+<!-- Sounds -->
+<audio id="titanSound" src="titan.mp3"></audio>
 <audio id="scoutSound" src="sword.mp3"></audio>
 <audio id="rageSound" src="fire.mp3"></audio>
-  
 
-  
+<!-- Audio Unlock (Mobile Fix) -->
 <script>
 function unlockAudio() {
-  document.querySelectorAll("audio").forEach(a => {
-    a.volume = 1;
-    a.play().then(() => {
-      a.pause();
-      a.currentTime = 0;
+  document.querySelectorAll("audio").forEach(audio => {
+    audio.play().then(() => {
+      audio.pause();
+      audio.currentTime = 0;
     }).catch(()=>{});
   });
   document.removeEventListener("click", unlockAudio);
 }
-
 document.addEventListener("click", unlockAudio);
 </script>
-  
-  
-    
-    
-      
-      
-    
-  
-  
 
-  
-  
-  
-  
-  
-  <script>
-  document.getElementById("titan").onclick = function () {
-    document.getElementById("titanSound").currentTime = 0;
-    document.getElementById("titanSound").play();
-  };
+<!-- Button Actions -->
+<script>
+document.getElementById("titan").addEventListener("click", () => {
+  const sound = document.getElementById("titanSound");
+  sound.currentTime = 0;
+  sound.play();
+});
 
-  document.getElementById("scout").onclick = function () {
-    document.getElementById("scoutSound").currentTime = 0;
-    document.getElementById("scoutSound").play();
-  };
+document.getElementById("scout").addEventListener("click", () => {
+  const sound = document.getElementById("scoutSound");
+  sound.currentTime = 0;
+  sound.play();
+});
 
-  document.getElementById("rage").onclick = function () {
-    document.getElementById("rageSound").currentTime = 0;
-    document.getElementById("rageSound").play();
-  };
-  </script>
-  
+document.getElementById("rage").addEventListener("click", () => {
+  const sound = document.getElementById("rageSound");
+  sound.currentTime = 0;
+  sound.play();
+  document.body.classList.add("rage-effect");
+});
+</script>
+
 </body>
   </html>
+    
+
   
