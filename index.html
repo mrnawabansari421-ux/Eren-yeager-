@@ -45,9 +45,12 @@
 <audio id="titanSound" src="titan.mp3"></audio>
 <audio id="scoutSound" src="sword.mp3"></audio>
 <audio id="rageSound" src="fire.mp3"></audio>
+<audio id="welcomeSound" src="welcome.mp3"></audio>
 
-<!-- Audio Unlock (Mobile Fix) -->
+<!-- Audio Unlock + Welcome Sound -->
 <script>
+let welcomePlayed = false;
+
 function unlockAudio() {
   document.querySelectorAll("audio").forEach(audio => {
     audio.play().then(() => {
@@ -57,7 +60,19 @@ function unlockAudio() {
   });
   document.removeEventListener("click", unlockAudio);
 }
+
+function playWelcomeSound() {
+  if (!welcomePlayed) {
+    const welcome = document.getElementById("welcomeSound");
+    welcome.currentTime = 0;
+    welcome.play().catch(()=>{});
+    welcomePlayed = true;
+    document.removeEventListener("click", playWelcomeSound);
+  }
+}
+
 document.addEventListener("click", unlockAudio);
+document.addEventListener("click", playWelcomeSound);
 </script>
 
 <!-- Button Actions -->
@@ -83,7 +98,8 @@ document.getElementById("rage").addEventListener("click", () => {
 </script>
 
 </body>
-  </html>
+</html>
+
     
 
   
