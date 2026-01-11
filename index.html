@@ -2,12 +2,18 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Eren Yeager</title>
+  <title>Eren Yeager | Premium</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="stylesheet" href="style.css">
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -18,7 +24,7 @@
 </header>
 
 <section class="hero">
-  <img src="eren.jpg" alt="Eren">
+  <img src="eren.jpg" alt="Eren Yeager">
   <h2>Freedom Fighter</h2>
   <p>“If you don’t fight, you can’t win.”</p>
 </section>
@@ -45,12 +51,9 @@
 <audio id="titanSound" src="titan.mp3"></audio>
 <audio id="scoutSound" src="sword.mp3"></audio>
 <audio id="rageSound" src="fire.mp3"></audio>
-<audio id="welcomeSound" src="welcome.mp3"></audio>
 
-<!-- Audio Unlock + Welcome Sound -->
+<!-- Audio Unlock -->
 <script>
-let welcomePlayed = false;
-
 function unlockAudio() {
   document.querySelectorAll("audio").forEach(audio => {
     audio.play().then(() => {
@@ -60,45 +63,31 @@ function unlockAudio() {
   });
   document.removeEventListener("click", unlockAudio);
 }
-
-function playWelcomeSound() {
-  if (!welcomePlayed) {
-    const welcome = document.getElementById("welcomeSound");
-    welcome.currentTime = 0;
-    welcome.play().catch(()=>{});
-    welcomePlayed = true;
-    document.removeEventListener("click", playWelcomeSound);
-  }
-}
-
 document.addEventListener("click", unlockAudio);
-document.addEventListener("click", playWelcomeSound);
 </script>
 
 <!-- Button Actions -->
 <script>
-document.getElementById("titan").addEventListener("click", () => {
-  const sound = document.getElementById("titanSound");
-  sound.currentTime = 0;
-  sound.play();
-});
+document.getElementById("titan").onclick = () => {
+  const s = document.getElementById("titanSound");
+  s.currentTime = 0; s.play();
+};
 
-document.getElementById("scout").addEventListener("click", () => {
-  const sound = document.getElementById("scoutSound");
-  sound.currentTime = 0;
-  sound.play();
-});
+document.getElementById("scout").onclick = () => {
+  const s = document.getElementById("scoutSound");
+  s.currentTime = 0; s.play();
+};
 
-document.getElementById("rage").addEventListener("click", () => {
-  const sound = document.getElementById("rageSound");
-  sound.currentTime = 0;
-  sound.play();
-  document.body.classList.add("rage-effect");
-});
+document.getElementById("rage").onclick = () => {
+  const s = document.getElementById("rageSound");
+  s.currentTime = 0; s.play();
+  document.body.classList.toggle("rage-effect");
+};
 </script>
 
 </body>
 </html>
+
 
     
 
