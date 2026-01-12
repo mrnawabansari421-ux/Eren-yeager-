@@ -18,6 +18,9 @@
 
 <body>
 
+<!-- BLOOD OVERLAY -->
+<div class="blood-overlay"></div>
+
 <header>
   <h1>🔥 Eren Yeager 🔥</h1>
   <p>Attack on Titan</p>
@@ -30,21 +33,10 @@
 </section>
 
 <section class="cards">
-  <a href="titan.html" class="card">⚔️ Titan Power</a>
-  <a href="#" class="card">🛡️ Scout Regiment</a>
-  <a href="#" class="card">🔥 Rage Mode</a>
+  <a href="titan.html" class="card" id="titan">⚔️ Titan Power</a>
+  <a href="#" class="card" id="scout">🛡️ Scout Regiment</a>
+  <a href="#" class="card rage-btn" id="rage">🔥 Rage Mode</a>
 </section>
-  
-  
-  
-  
-
-  
-  
-  
-  
-  
-
 
 <footer>
   <p>© 2026 | Made by Nawab</p>
@@ -63,21 +55,17 @@
 <audio id="scoutSound" src="sword.mp3"></audio>
 <audio id="rageSound" src="fire.mp3"></audio>
 
-<!-- Audio Unlock -->
+<!-- AUDIO UNLOCK -->
 <script>
-function unlockAudio() {
-  document.querySelectorAll("audio").forEach(audio => {
-    audio.play().then(() => {
-      audio.pause();
-      audio.currentTime = 0;
-    }).catch(()=>{});
+document.addEventListener("click", function unlock() {
+  document.querySelectorAll("audio").forEach(a=>{
+    a.play().then(()=>{a.pause();a.currentTime=0;}).catch(()=>{});
   });
-  document.removeEventListener("click", unlockAudio);
-}
-document.addEventListener("click", unlockAudio);
+  document.removeEventListener("click", unlock);
+});
 </script>
 
-<!-- Button Actions -->
+<!-- BUTTON ACTIONS -->
 <script>
 document.getElementById("titan").onclick = () => {
   const s = document.getElementById("titanSound");
@@ -91,13 +79,21 @@ document.getElementById("scout").onclick = () => {
 
 document.getElementById("rage").onclick = () => {
   const s = document.getElementById("rageSound");
-  s.currentTime = 0; s.play();
-  document.body.classList.toggle("rage-effect");
+  s.currentTime = 0;
+  s.play();
+
+  document.body.classList.add("rage-effect");
+
+  setTimeout(()=>{
+    document.body.classList.remove("rage-effect");
+  }, 4000);
 };
 </script>
 
 </body>
 </html>
+
+
 
 
     
