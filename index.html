@@ -1,53 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Eren Yeager | Premium</title>
+  <meta charset="UTF-8">
+  <title>Eren Yeager | Premium</title>
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="style.css">
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<!-- BLOOD OVERLAY -->
-<div class="blood-overlay"></div>
-
 <header>
-  <h1>🔥 Eren Yeager 🔥</h1>
-  <p>Attack on Titan</p>
+  <h1>🔥 Eren Yeager 🔥</h1>
+  <p>Attack on Titan</p>
 </header>
 
 <section class="hero">
-  <img src="eren.jpg" alt="Eren Yeager">
-  <h2>Freedom Fighter</h2>
-  <p>“If you don’t fight, you can’t win.”</p>
+  <img src="eren.jpg" alt="Eren Yeager">
+  <h2>Freedom Fighter</h2>
+  <p>“If you don’t fight, you can’t win.”</p>
 </section>
 
 <section class="cards">
-  <a href="titan.html" class="card" id="titan">⚔️ Titan Power</a>
-  <a href="#" class="card" id="scout">🛡️ Scout Regiment</a>
-  <a href="#" class="card rage-btn" id="rage">🔥 Rage Mode</a>
+  <a href="titan.html" class="card">⚔️ Titan Power</a>
+  <a href="#" class="card">🛡️ Scout Regiment</a>
+  <a href="#" class="card">🔥 Rage Mode</a>
 </section>
+  
+  
+  
+  
+
+  
+  
+  
+  
+  
+
 
 <footer>
-  <p>© 2026 | Made by Nawab</p>
+  <p>© 2026 | Made by Nawab</p>
 </footer>
 
 <!-- Social Icons -->
 <div class="social-icons">
-  <a href="https://www.instagram.com/h3y._st4nnnny" target="_blank"><i class="fab fa-instagram"></i></a>
-  <a href="https://youtube.com/@nawab93883" target="_blank"><i class="fab fa-youtube"></i></a>
-  <a href="https://www.facebook.com/share/16gj2hijG7/" target="_blank"><i class="fab fa-facebook-f"></i></a>
-  <a href="https://x.com/erenx902" target="_blank"><i class="fab fa-x-twitter"></i></a>
+  <a href="https://www.instagram.com/h3y._st4nnnny" target="_blank"><i class="fab fa-instagram"></i></a>
+  <a href="https://youtube.com/@nawab93883" target="_blank"><i class="fab fa-youtube"></i></a>
+  <a href="https://www.facebook.com/share/16gj2hijG7/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+  <a href="https://x.com/erenx902" target="_blank"><i class="fab fa-x-twitter"></i></a>
 </div>
 
 <!-- Sounds -->
@@ -55,43 +63,47 @@
 <audio id="scoutSound" src="sword.mp3"></audio>
 <audio id="rageSound" src="fire.mp3"></audio>
 
-<!-- AUDIO UNLOCK -->
+<!-- Audio Unlock -->
 <script>
-document.addEventListener("click", function unlock() {
-  document.querySelectorAll("audio").forEach(a=>{
-    a.play().then(()=>{a.pause();a.currentTime=0;}).catch(()=>{});
-  });
-  document.removeEventListener("click", unlock);
-});
+function unlockAudio() {
+  document.querySelectorAll("audio").forEach(audio => {
+    audio.play().then(() => {
+      audio.pause();
+      audio.currentTime = 0;
+    }).catch(()=>{});
+  });
+  document.removeEventListener("click", unlockAudio);
+}
+document.addEventListener("click", unlockAudio);
 </script>
 
-<!-- BUTTON ACTIONS -->
+<!-- Button Actions -->
 <script>
 document.getElementById("titan").onclick = () => {
-  const s = document.getElementById("titanSound");
-  s.currentTime = 0; s.play();
+  const s = document.getElementById("titanSound");
+  s.currentTime = 0; s.play();
 };
 
 document.getElementById("scout").onclick = () => {
-  const s = document.getElementById("scoutSound");
-  s.currentTime = 0; s.play();
+  const s = document.getElementById("scoutSound");
+  s.currentTime = 0; s.play();
 };
 
 document.getElementById("rage").onclick = () => {
-  const s = document.getElementById("rageSound");
-  s.currentTime = 0;
-  s.play();
-
-  document.body.classList.add("rage-effect");
-
-  setTimeout(()=>{
-    document.body.classList.remove("rage-effect");
-  }, 4000);
+  const s = document.getElementById("rageSound");
+  s.currentTime = 0; s.play();
+  document.body.classList.toggle("rage-effect");
 };
 </script>
 
 </body>
 </html>
+
+
+    
+
+  
+
 
 
 
