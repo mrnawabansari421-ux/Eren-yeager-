@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
-
 *{
   margin:0;
   padding:0;
@@ -8,185 +6,114 @@
 }
 
 body{
-  min-height:100vh;
-  background:radial-gradient(circle at top,#1a0000,#000);
-  color:white;
+  background:#0b0b0b;
+  color:#fff;
   text-align:center;
   overflow-x:hidden;
 }
 
 /* HEADER */
 header{
-  padding:22px;
-}
-
-header h1{
-  color:#ff5722;
-  font-weight:700;
-  font-size:28px;
-}
-
-header p{
-  opacity:.75;
-  font-size:14px;
+  padding:20px;
+  background:#111;
+  box-shadow:0 0 20px crimson;
 }
 
 /* HERO */
-.hero{
-  margin-top:35px;
-  animation:fadeUp 1s ease;
-}
-
 .hero img{
-  width:190px;
-  height:190px;
+  width:220px;
   border-radius:50%;
-  object-fit:cover;
-  border:4px solid #ff5722;
-  box-shadow:0 0 50px rgba(255,87,34,.85);
+  margin-top:20px;
+  box-shadow:0 0 25px red;
 }
 
-.hero h2{
-  margin-top:18px;
-  font-size:26px;
-}
-
-.hero p{
-  margin-top:6px;
-  opacity:.85;
-  font-size:15px;
-}
-
-/* BUTTONS */
+/* CARDS */
 .cards{
-  margin-top:45px;
   display:flex;
   flex-direction:column;
-  gap:20px;
-  align-items:center;
-  animation:fadeUp 1.2s ease;
+  gap:15px;
+  margin:30px;
 }
 
 .card{
-  width:88%;
-  max-width:340px;
-  padding:18px;
-  font-size:18px;
+  text-decoration:none;
+  padding:15px;
+  border-radius:10px;
+  background:#1a1a1a;
   color:white;
-  background:rgba(255,255,255,0.06);
-  backdrop-filter:blur(14px);
-  border-radius:16px;
-  border:2px solid rgba(255,87,34,.6);
-  box-shadow:0 0 25px rgba(255,87,34,.35);
-  cursor:pointer;
-  transition:.35s ease;
+  font-size:18px;
+  box-shadow:0 0 15px rgba(255,0,0,0.3);
+  transition:0.3s;
 }
 
 .card:hover{
-  background:#ff5722;
-  color:#000;
-  transform:scale(1.07);
-  box-shadow:0 0 45px #ff5722;
+  transform:scale(1.05);
+  box-shadow:0 0 25px red;
 }
 
-/* SOCIAL ICONS */
+/* RAGE BUTTON */
+.rage-btn{
+  background:linear-gradient(45deg, darkred, crimson);
+  animation:pulse 1s infinite;
+}
+
+@keyframes pulse{
+  0%{box-shadow:0 0 10px red;}
+  50%{box-shadow:0 0 30px crimson;}
+  100%{box-shadow:0 0 10px red;}
+}
+
+/* SOCIAL */
 .social-icons{
-  position:fixed;
-  left:15px;
-  bottom:70px;
-  display:flex;
-  flex-direction:column;
-  gap:18px;
-  z-index:100;
+  margin:25px;
 }
 
 .social-icons a{
-  color:white;
+  color:red;
   font-size:22px;
-  opacity:.8;
-  transition:.3s;
+  margin:0 10px;
 }
 
-.social-icons a:hover{
-  color:#ff5722;
-  opacity:1;
-  transform:scale(1.2);
-}
-
-/* FOOTER */
-footer{
-  margin:45px 0 20px;
-  font-size:14px;
-  opacity:.6;
-}
-
-/* FADE ANIMATION */
-@keyframes fadeUp{
-  from{
-    opacity:0;
-    transform:translateY(35px);
-  }
-  to{
-    opacity:1;
-    transform:translateY(0);
-  }
-}
-
-/* RAGE MODE */
-body.rage-effect{
-  background:radial-gradient(circle,#ff0000,#000);
-  animation:shake .15s infinite;
-}
-
-@keyframes shake{
-  0%{transform:translateX(0)}
-  25%{transform:translateX(-2px)}
-  50%{transform:translateX(2px)}
-  75%{transform:translateX(-2px)}
-  100%{transform:translateX(0)}
-}
-
-/* MOBILE FIX */
-@media(max-width:480px){
-  .hero img{
-    width:170px;
-    height:170px;
-  }
-    }
-a.card{
-  text-decoration: none;
-  color: inherit;
-  }
-/* RAGE MODE BLOOD EFFECT */
-.rage {
-  position: relative;
-  background: linear-gradient(135deg, #ff3b00, #8b0000);
-  color: #fff;
-  overflow: hidden;
-  box-shadow: 0 0 20px #ff0000;
-}
-
-.rage::before {
-  content: "";
-  position: absolute;
-  top: -100%;
-  left: 0;
-  width: 100%;
-  height: 300%;
+/* BLOOD OVERLAY */
+.blood-overlay{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
   background:
-    radial-gradient(circle at 20% 30%, rgba(255,0,0,.6), transparent 40%),
-    radial-gradient(circle at 70% 60%, rgba(180,0,0,.7), transparent 45%);
-  animation: bloodFlow 3s linear infinite;
+    radial-gradient(circle at top, rgba(255,0,0,0.4), transparent 60%),
+    radial-gradient(circle at bottom, rgba(120,0,0,0.5), transparent 70%);
+  opacity:0;
+  z-index:999;
 }
 
-@keyframes bloodFlow {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(50%); }
+/* RAGE MODE EFFECT */
+.rage-effect{
+  animation:shake 0.15s infinite;
 }
 
-.rage-bg{
-  background: radial-gradient(circle, #300000, #000);
-  }
+.rage-effect .blood-overlay{
+  opacity:1;
+  animation:bloodFlash 0.2s infinite;
+}
+
+/* SHAKE */
+@keyframes shake{
+  0%{transform:translate(0,0);}
+  25%{transform:translate(-6px,4px);}
+  50%{transform:translate(6px,-4px);}
+  75%{transform:translate(-4px,-6px);}
+  100%{transform:translate(0,0);}
+}
+
+/* BLOOD FLASH */
+@keyframes bloodFlash{
+  0%{background-color:rgba(255,0,0,0.1);}
+  50%{background-color:rgba(255,0,0,0.35);}
+  100%{background-color:rgba(255,0,0,0.1);}
+}
+
+
+
   
 
 
